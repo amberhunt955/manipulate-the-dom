@@ -18,31 +18,81 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Part 1
 
+  const mainTitle = document.querySelector("#main-title");
+  mainTitle.textContent = "Welcome!"
+  console.log(mainTitle);
 
   // Part 2
 
+  const body = document.querySelector("body");
+  body.style.backgroundColor = "#add8e6";
 
   // Part 3
 
+  const faveThingsList = body.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling;
+  faveThingsList.lastElementChild.remove();
 
   // Part 4
 
+  const specialTitle = document.querySelectorAll(".special-title");
+  console.log(specialTitle);
+  specialTitle.forEach( (title) => {
+    title.style.fontSize = "2rem";
+  }) 
 
   // Part 5
 
+  const pastRacesList = document.getElementById("past-races");
+  pastRacesList.childNodes.forEach( (pastRace) => {
+    if (pastRace.textContent === "Chicago") {
+      pastRace.remove();
+      return;
+    }
+  })
 
   // Part 6
 
+  const li = document.createElement("li");
+  li.textContent = "Toronto"
+  pastRacesList.appendChild(li);
+  console.log(pastRacesList);
 
   // Part 7
 
+  const div = document.createElement("div");
+  div.classList.add("blog-post");
+  div.classList.add("purple");
+
+  const h1 = document.createElement("h1");
+  h1.textContent = li.textContent;
+  div.appendChild(h1);
+
+  const p = document.createElement("p");
+  p.textContent = "Another race!";
+  div.appendChild(p);
+
+  const mainDiv = document.querySelector(".main");
+  mainDiv.appendChild(div);
 
   // Part 8
 
+  const quoteTitle = document.querySelector("#quote-title");
+  quoteTitle.addEventListener("click", randomQuote)
 
   // Part 9
 
+  const allBlogPosts = document.querySelectorAll(".blog-post");
+  console.log(allBlogPosts);
 
+  allBlogPosts.forEach( (blogPost) => {
+    blogPost.addEventListener("mouseout", function() {
+        blogPost.classList.toggle("purple");
+    })
+
+    blogPost.addEventListener("mouseenter", function() {
+        blogPost.classList.toggle("red");
+    })
+  })
 
 
 });
