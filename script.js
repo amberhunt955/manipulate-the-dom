@@ -82,17 +82,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Part 9
 
   const allBlogPosts = document.querySelectorAll(".blog-post");
-  console.log(allBlogPosts);
 
   allBlogPosts.forEach( (blogPost) => {
-    blogPost.addEventListener("mouseout", function() {
-        blogPost.classList.toggle("purple");
+    blogPost.addEventListener("mouseleave", function(event) {
+        event.target.classList.toggle("purple");
+        event.target.classList.toggle("red");
+        console.log("LEAVING purple toggle");
     })
 
-    blogPost.addEventListener("mouseenter", function() {
-        blogPost.classList.toggle("red");
+    blogPost.addEventListener("mouseenter", function(event) {
+      event.target.classList.toggle("purple");
+      event.target.classList.toggle("red");
+        console.log("ENTERING red toggle");
     })
   })
 
-
+  
 });
